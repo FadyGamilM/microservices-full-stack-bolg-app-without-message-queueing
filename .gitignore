@@ -1,4 +1,5 @@
 posts/node_modules
 comments/node_modules
 event-bus/node_modules
+query/node_modules
 microservices-full-stack-bolg-app-without-message-queueing

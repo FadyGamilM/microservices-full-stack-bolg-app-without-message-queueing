@@ -16,7 +16,7 @@ app.post("/events", async (req, res, next) => {
 	// => the COMMENTS Service
 	await axios.post("http://localhost:4001/events", event);
 	// => the QUERY Service
-	// await axios.post("http://localhost:4002/events", event);
+	await axios.post("http://localhost:4002/events", event);
 	res.status(200);
 });
 
