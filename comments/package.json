@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "comments":"nodemon index.js"
+    "comments": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.0",
+    "colors": "^1.4.0",
     "cors": "^2.8.5",
     "express": "^4.17.3",
     "nodemon": "^2.0.15"
