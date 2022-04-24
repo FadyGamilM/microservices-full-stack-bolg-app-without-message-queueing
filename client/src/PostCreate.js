@@ -16,7 +16,7 @@ const PostCreate = () => {
 			<div className="w-full max-w-xs">
 				<form
 					onSubmit={SubmitForm}
-					className="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4"
+					className="bg-white shadow-xl rounded-xl px-4 pt-6 pb-8 mb-4"
 				>
 					<div className="my-4 flex flex-col">
 						<label className="font-bold text-lg">Title</label>
@@ -28,7 +28,10 @@ const PostCreate = () => {
 						/>
 					</div>
 					<div className="text-center">
-						<button className="bg-sky-500 p-2 rounded-lg text-white font-bold hover:scale-110 transition transform">
+						<button
+							type="submit"
+							className="bg-sky-500 p-2 rounded-lg text-white font-bold hover:scale-110 transition transform"
+						>
 							create new post
 						</button>
 					</div>

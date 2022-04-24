@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-
 import axios from "axios";
+import CommentCreate from "./CommentCreate";
+import CommentList from "./CommentList";
 const PostList = () => {
 	const [posts, setPosts] = useState({});
 	const fetchPosts = async () => {
@@ -20,12 +21,14 @@ const PostList = () => {
 			>
 				<div>
 					<h1 className="font-semibold">{post.postTitle}</h1>
+					<CommentList postID={post.postID} />
+					<CommentCreate postID={post.postID} />
 				</div>
 			</div>
 		);
 	});
 
-	return <div className="grid grid-cols-3">{renderedPosts}</div>;
+	return <div className="grid grid-cols-2">{renderedPosts}</div>;
 };
 
 export default PostList;
