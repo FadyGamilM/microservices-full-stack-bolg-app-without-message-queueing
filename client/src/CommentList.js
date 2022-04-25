@@ -13,9 +13,17 @@ const CommentList = ({ comments }) => {
 	// }, []);
 
 	const renderedComments = comments.map((comment) => {
+		let content = "";
+		if (comment.status === "approved") {
+			content = comment.content;
+		} else if (comment.status === "pending") {
+			content = "This comment is waiting for moderation";
+		} else if (comment.status === "rejected") {
+			content = "This comment has been rejected";
+		}
 		return (
 			<div className="text-blue-500" key={comment.id}>
-				{comment.content}
+				{content}
 			</div>
 		);
 	});

@@ -5,9 +5,11 @@ const PostCreate = () => {
 
 	const SubmitForm = async (e) => {
 		e.preventDefault();
+		console.log(title);
 		const { data } = await axios.post("http://localhost:4000/posts", {
 			title: title,
 		});
+		console.log("Helllo ...");
 		setTitle("");
 	};
 

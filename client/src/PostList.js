@@ -7,13 +7,13 @@ const PostList = () => {
 	const [posts, setPosts] = useState({});
 	const fetchPosts = async () => {
 		const { data } = await axios.get("http://localhost:4002/posts");
-		// console.log(data);
+		console.log(data);
 		setPosts(data);
 	};
 	useEffect(() => {
 		fetchPosts();
 	}, []);
-	console.log(posts);
+	// console.log(posts);
 
 	const renderedPosts = Object.values(posts).map((post) => {
 		return (

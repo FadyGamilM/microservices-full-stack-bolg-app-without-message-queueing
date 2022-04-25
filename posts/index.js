@@ -10,7 +10,7 @@ require("colors");
 const posts = {};
 
 app.get("/posts", (req, res, next) => {
-	res.send(posts);
+	res.status(200).json(posts);
 });
 
 app.post("/posts", async (req, res, next) => {
@@ -31,7 +31,7 @@ app.post("/posts", async (req, res, next) => {
 			},
 		});
 		//! return the response
-		res.status(201).send(posts[postID]);
+		res.status(201).json(posts[postID]);
 	} catch (error) {
 		console.log(
 			`Error From Posts Service \n Error Message: ${error.message}`.inverse.red

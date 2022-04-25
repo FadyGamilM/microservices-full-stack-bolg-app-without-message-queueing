@@ -46,7 +46,7 @@ app.post("/events", (req, res, next) => {
 			};
 		} else if (type === "CommentCreated") {
 			// get the comment data
-			const { id, content, postID } = data;
+			const { id, content, postID, status } = data;
 			// add the comment
 			// -> get the post
 			const post = posts[postID];
@@ -54,7 +54,16 @@ app.post("/events", (req, res, next) => {
 			post.comments.push({
 				id,
 				content,
+				status,
 			});
+		} else if (type === "CommentUpdated") {
+			// get comment data
+			const { id, content, postID, status } = data;
+			// get the comment that is updated
+			const post = posts[postID];
+			const comment = post.comments.find((comment) => comment.id === id);
+			comment.status = status;
+			comment.content = content;
 		}
 		console.log(`${type} Event is emmited from event broker`.inverse.green);
 		console.log(posts);
