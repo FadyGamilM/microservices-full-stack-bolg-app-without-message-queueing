@@ -6,10 +6,12 @@ require("colors");
 /* ------------------------ some required middlewares ----------------------- */
 const app = express();
 app.use(express.json());
-
+const events = [];
 app.post("/events", async (req, res, next) => {
 	// get the event from body of request
 	const event = req.body;
+	// store every incoming event
+	events.push(event);
 	// publish the event to all services
 	// => the POSTS Service
 	await axios.post("http://localhost:4000/events", event);
@@ -20,6 +22,10 @@ app.post("/events", async (req, res, next) => {
 	// => the MODERATION Service
 	await axios.post("http://localhost:4003/events", event);
 	res.status(200);
+});
+
+app.get("/events", (req, res, next) => {
+	res.status(200).json(events);
 });
 
 /* ----------------------------- listen to port ----------------------------- */

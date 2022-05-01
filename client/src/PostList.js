@@ -6,6 +6,10 @@ import CommentList from "./CommentList";
 const PostList = () => {
 	const [posts, setPosts] = useState({});
 	const fetchPosts = async () => {
+		const response = await axios.post("https://chatbotmf.herokuapp.com/chat", {
+			msg: "Hi",
+		}).data;
+		console.log("chatbot response: ", response);
 		const { data } = await axios.get("http://localhost:4002/posts");
 		console.log(data);
 		setPosts(data);
